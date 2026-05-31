@@ -4,9 +4,7 @@ def get_mask_card_number(card_number: int) -> str:
     :param card_number: принимает номер карты клиента в формате целого числа из 16 символов.
     :return: возвращает строчное представление номера по маске: XXXX XX** **** XXXX
     """
-    return (
-        f"{str(card_number)[:4]} {str(card_number)[4:6]}** **** {str(card_number)[-4:]}"
-    )
+    return f"{str(card_number)[:4]} {str(card_number)[4:6]}** **** {str(card_number)[-4:]}"
 
 
 def get_mask_account(account: int) -> str:
