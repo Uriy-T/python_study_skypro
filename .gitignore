@@ -221,3 +221,6 @@ __marimo__/
 
 # Linters
 .flake8
+
+# my files
+.practise/
