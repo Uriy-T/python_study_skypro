@@ -1,6 +1,4 @@
-def filter_by_state(data_for_filter: list[dict], state: str = 'EXECUTED') -> list[dict] | str:
-
-
+def filter_by_state(data_for_filter: list[dict], state: str = 'EXECUTED') -> list[dict]:
     available_states = ['EXECUTED', 'CANCELED']
 
     if not isinstance(data_for_filter, list):
@@ -16,4 +14,17 @@ def filter_by_state(data_for_filter: list[dict], state: str = 'EXECUTED') -> lis
         raise ValueError(f'Значения state нет в списке доступных состояний. Доступны: {available_states}')
 
     return [item for item in data_for_filter if item['state'] == state]
+
+
+def sort_by_date(data_for_sort: list[dict], sort_order_reverse: bool = True) -> list[dict]:
+    if not isinstance(data_for_sort, list):
+        raise TypeError(f'data_for_sort должен быть list, получен тип: {type(data_for_sort).__name__}')
+
+    if not all(isinstance(item, dict) for item in data_for_sort):
+        raise TypeError(f'Все элементы data_for_filter должен быть dict')
+
+    if not isinstance(sort_order_reverse, bool):
+        raise TypeError(f'state должен быть str, получен тип: {type(sort_order_reverse).__name__}')
+
+    return sorted(data_for_sort, key=lambda x: x['date'], reverse=sort_order_reverse)
 
