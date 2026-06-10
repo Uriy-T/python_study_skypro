@@ -24,6 +24,10 @@ def filter_by_state(data_for_filter: list[dict], state: str = 'EXECUTED') -> lis
     if state not in available_states:
         raise ValueError(f'Значения state нет в списке доступных состояний. Доступны: {available_states}')
 
+    for i, item in enumerate(data_for_filter):
+        if 'state' not in item:
+            raise KeyError(f"Элемент с индексом {i} не содержит ключ 'state'")
+
     return [item for item in data_for_filter if item['state'] == state]
 
 
@@ -49,4 +53,15 @@ def sort_by_date(data_for_sort: list[dict], sort_order_reverse: bool = True) -> 
     if not isinstance(sort_order_reverse, bool):
         raise TypeError(f'state должен быть str, получен тип: {type(sort_order_reverse).__name__}')
 
+    for i, item in enumerate(data_for_sort):
+        if 'date' not in item:
+            raise KeyError(f"Элемент с индексом {i} не содержит ключ 'date'")
+
     return sorted(data_for_sort, key=lambda x: x['date'], reverse=sort_order_reverse)
+
+data = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
+        {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
+        {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
+        {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+
+print(sort_by_date(data))
