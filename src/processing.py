@@ -17,7 +17,7 @@ def filter_by_state(data_for_filter: list[dict], state: str = "EXECUTED") -> lis
         raise TypeError(f"data_for_filter должен быть list, получен тип: {type(data_for_filter).__name__}")
 
     if not all(isinstance(item, dict) for item in data_for_filter):
-        raise TypeError(f"Все элементы data_for_filter должен быть dict")
+        raise TypeError("Все элементы data_for_filter должен быть dict")
 
     if not isinstance(state, str):
         raise TypeError(f"state должен быть str, получен тип: {type(state).__name__}")
@@ -49,7 +49,7 @@ def sort_by_date(data_for_sort: list[dict], sort_order_reverse: bool = True) -> 
         raise TypeError(f"data_for_sort должен быть list, получен тип: {type(data_for_sort).__name__}")
 
     if not all(isinstance(item, dict) for item in data_for_sort):
-        raise TypeError(f"Все элементы data_for_filter должен быть dict")
+        raise TypeError("Все элементы data_for_filter должен быть dict")
 
     if not isinstance(sort_order_reverse, bool):
         raise TypeError(f"state должен быть str, получен тип: {type(sort_order_reverse).__name__}")
@@ -59,4 +59,3 @@ def sort_by_date(data_for_sort: list[dict], sort_order_reverse: bool = True) -> 
             raise KeyError(f"Элемент с индексом {i} не содержит ключ 'date'")
 
     return sorted(data_for_sort, key=lambda x: x["date"], reverse=sort_order_reverse)
-
