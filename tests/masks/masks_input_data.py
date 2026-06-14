@@ -104,13 +104,6 @@ account_invalid_data = [
         'exception_type': ValueError
     },
 
-    # {
-    #     'account': 0,
-    #     'system_answer':
-    #         'Номер счета не может быть нулевым',
-    #     'exception_type': ValueError
-    # },
-
     {
         'account': None,
         'system_answer':
