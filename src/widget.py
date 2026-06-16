@@ -13,16 +13,16 @@ def mask_account_card(requisite: str) -> str | None:
     В случае ввода в невалидных, выводит соответствующее ситуации сообщение.
     """
     if not isinstance(requisite, str):
-        raise TypeError('Реквизит не является str.')
+        raise TypeError("Реквизит не является str.")
 
-    if requisite in ['', ' ']:
-        raise ValueError('Данные для маскИрования не предоставлены.')
+    if requisite in ["", " "]:
+        raise ValueError("Данные для маскИрования не предоставлены.")
 
     requisite_type = " ".join(requisite.split()[:-1])
     requisite_number = requisite.split()[-1]
 
     if not requisite_type or not requisite_number:
-        raise ValueError('Реквизит не соответствует поддерживаемому шаблону.')
+        raise ValueError("Реквизит не соответствует поддерживаемому шаблону.")
 
     if len(requisite_number) == 16:
         int_requisite = int(requisite_number)
@@ -44,7 +44,7 @@ def get_date(date: str) -> str:
         return datetime.fromisoformat(date).strftime("%d.%m.%Y")
 
     except ValueError:
-        raise ValueError('Переданное значение описано не по ISO формату.')
+        raise ValueError("Переданное значение описано не по ISO формату.")
 
     except TypeError:
-        raise TypeError('Значение не является str.')
+        raise TypeError("Значение не является str.")
