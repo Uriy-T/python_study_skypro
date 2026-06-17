@@ -1,5 +1,14 @@
-def filter_by_state(data_for_filter: list[dict],
-                    state: str = "EXECUTED") -> list[dict]:
+from src.valodators.processing_validator import (
+    dff_validator,
+    dfs_validator,
+    order_validator,
+    state_validator,
+)
+
+
+def filter_by_state(
+    data_for_filter: list[dict], state: str = "EXECUTED"
+) -> list[dict]:
     """
     Функция отделяет объекты с данными из общего набора по значению rest.
     :param data_for_filter: список словарей, для фильтрации.
@@ -12,32 +21,15 @@ def filter_by_state(data_for_filter: list[dict],
     соответствующие случаю неверного ввода.
     """
 
-    available_states = ["EXECUTED", "CANCELED"]
-
-    if not isinstance(data_for_filter, list):
-        raise TypeError(f"data_for_filter должен быть list."
-                        f"Получен тип: {type(data_for_filter).__name__}")
-
-    if not all(isinstance(item, dict) for item in data_for_filter):
-        raise TypeError("Все элементы data_for_filter должен быть dict")
-
-    if not isinstance(state, str):
-        raise TypeError(f"state должен быть str."
-                        f"Получен тип: {type(state).__name__}")
-
-    if state not in available_states:
-        raise ValueError(f"Значения state нет в списке доступных состояний."
-                         f"Доступны: {available_states}")
-
-    for i, item in enumerate(data_for_filter):
-        if "state" not in item:
-            raise KeyError(f"Элемент с индексом {i} не содержит ключ 'state'")
+    dff_validator(data_for_filter)
+    state_validator(state)
 
     return [item for item in data_for_filter if item["state"] == state]
 
 
-def sort_by_date(data_for_sort: list[dict],
-                 sort_order: bool = True) -> list[dict]:
+def sort_by_date(
+    data_for_sort: list[dict], sort_order: bool = True
+) -> list[dict]:
     """
     Функция сортирует полученный набор словарей по значению параметра date.
     :param data_for_sort: список словарей для сортировки.
@@ -51,19 +43,7 @@ def sort_by_date(data_for_sort: list[dict],
     соответствующие случаю неверного ввода.
     """
 
-    if not isinstance(data_for_sort, list):
-        raise TypeError(f"data_for_sort должен быть list."
-                        f"Получен тип: {type(data_for_sort).__name__}")
-
-    if not all(isinstance(item, dict) for item in data_for_sort):
-        raise TypeError("Все элементы data_for_filter должен быть dict")
-
-    if not isinstance(sort_order, bool):
-        raise TypeError(f"state должен быть str."
-                        f"Получен тип: {type(sort_order).__name__}")
-
-    for i, item in enumerate(data_for_sort):
-        if "date" not in item:
-            raise KeyError(f"Элемент с индексом {i} не содержит ключ 'date'")
+    dfs_validator(data_for_sort)
+    order_validator(sort_order)
 
     return sorted(data_for_sort, key=lambda x: x["date"], reverse=sort_order)

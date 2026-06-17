@@ -12,26 +12,39 @@ def mask_account_card(requisite: str) -> str | None:
 
     В случае ввода в невалидных, выводит соответствующее ситуации сообщение.
     """
-    if requisite and isinstance(requisite, str):
-        requisite_type = " ".join(requisite.split()[:-1])
-        requisite_number = requisite.split()[-1]
+    if not isinstance(requisite, str):
+        raise TypeError("Реквизит не является str.")
 
-        if len(requisite_number) == 16:
-            int_requisite = int(requisite_number)
-            return f"{requisite_type} {get_mask_card_number(int_requisite)}"
-        elif len(requisite_number) == 20:
-            int_requisite = int(requisite_number)
-            return f"{requisite_type} {get_mask_account(int_requisite)}"
-        else:
-            return "Предоставлен неизвестный тип реквизита клиента"
+    if requisite in ["", " "]:
+        raise ValueError("Данные для маскИрования не предоставлены.")
+
+    requisite_type = " ".join(requisite.split()[:-1])
+    requisite_number = requisite.split()[-1]
+
+    if not requisite_type or not requisite_number:
+        raise ValueError("Реквизит не соответствует поддерживаемому шаблону.")
+
+    if len(requisite_number) == 16:
+        int_requisite = int(requisite_number)
+        return f"{requisite_type} {get_mask_card_number(int_requisite)}"
+    elif len(requisite_number) == 20:
+        int_requisite = int(requisite_number)
+        return f"{requisite_type} {get_mask_account(int_requisite)}"
     else:
-        return "Предоставлены неверные данные. Проверьте правильность ввода"
+        return "Предоставлен неизвестный тип реквизита."
 
 
 def get_date(date: str) -> str:
     """Функция преобразует дату в формате ISO 8601 в дату в формате ДД.ММ.ГГГГ.
 
-    :param date: принимает на вход строчное значение даты в формате ISO 8601
+    :param date: принимает на вход строчное значение даты.
     :return: возвращает строчное значение даты в формате ДД.ММ.ГГГГ
     """
-    return datetime.fromisoformat(date).strftime("%d.%m.%Y")
+    try:
+        return datetime.fromisoformat(date).strftime("%d.%m.%Y")
+
+    except ValueError:
+        raise ValueError("Переданное значение описано не по ISO формату.")
+
+    except TypeError:
+        raise TypeError("Значение не является str.")
