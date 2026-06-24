@@ -1,9 +1,6 @@
-from src.valodators.processing_validator import (
-    dff_validator,
-    dfs_validator,
-    order_validator,
-    state_validator,
-)
+from src.valodators.processing_validator import (dff_validator, dfs_validator,
+                                                 order_validator,
+                                                 state_validator)
 
 
 def filter_by_state(
