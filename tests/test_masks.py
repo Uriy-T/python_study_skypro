@@ -1,11 +1,9 @@
 import pytest
 
-from data_for_test.masks.masks_input_data import (
-    account_invalid_data,
-    account_valid_data,
-    card_invalid_data,
-    card_valid_data,
-)
+from data_for_test.masks.masks_input_data import (account_invalid_data,
+                                                  account_valid_data,
+                                                  card_invalid_data,
+                                                  card_valid_data)
 from src.masks import get_mask_account, get_mask_card_number
 from src.utils.input_data_formater import param_packer, value_packer
 

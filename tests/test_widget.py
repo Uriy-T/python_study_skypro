@@ -1,11 +1,9 @@
 import pytest
 
-from data_for_test.widget.widget_input_data import (
-    gd_invalid_data,
-    gd_valid_data,
-    wdt_input_data_negative,
-    wdt_input_data_positive,
-)
+from data_for_test.widget.widget_input_data import (gd_invalid_data,
+                                                    gd_valid_data,
+                                                    wdt_input_data_negative,
+                                                    wdt_input_data_positive)
 from src.utils.input_data_formater import param_packer, value_packer
 from src.widget import get_date, mask_account_card
 
