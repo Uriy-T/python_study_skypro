@@ -4,7 +4,7 @@ from typing import Any, Callable
 
 
 def log(
-        filename: str | None = None,
+    filename: str | None = None,
 ) -> Callable[[Callable], Callable[..., str]]:
     """
     Функция декорирует выполняемые функции функционалом
