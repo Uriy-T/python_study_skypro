@@ -2,11 +2,9 @@ from typing import Any
 
 import pytest
 
-from data_for_test.utils.datasets import (
-    get_info_invalid_data,
-    get_info_path_invalid_data,
-    get_info_valid_data,
-)
+from data_for_test.utils.datasets import (get_info_invalid_data,
+                                          get_info_path_invalid_data,
+                                          get_info_valid_data)
 from src.tools.input_data_formater import param_packer, value_packer
 from src.utils import get_transaction_info
 
