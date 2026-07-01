@@ -1,9 +1,11 @@
 from typing import Any, Generator
 
-from src.valodators.generators_validators import (currency_validator,
-                                                  data_type_validator,
-                                                  interval_validator,
-                                                  structure_validator)
+from src.validators.generators_validators import (
+    currency_validator,
+    data_type_validator,
+    interval_validator,
+    structure_validator,
+)
 
 
 def filter_by_currency(
