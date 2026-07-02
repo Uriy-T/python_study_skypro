@@ -1,10 +1,8 @@
 import pytest
 from _pytest.capture import CaptureFixture
 
-from data_for_test.decorators.log_decorator import (
-    log_invalid_data,
-    log_valid_data,
-)
+from data_for_test.decorators.log_decorator import (log_invalid_data,
+                                                    log_valid_data)
 from src.decorators import log
 from src.processing import filter_by_state
 from src.tools.input_data_formater import param_packer, value_packer
