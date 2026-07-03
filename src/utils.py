@@ -15,15 +15,15 @@ transaction_handler.setFormatter(transaction_formater)
 transaction_logger.addHandler(transaction_handler)
 
 
-def get_transaction_info(path_to_data: str) -> list[dict[str, Any]]:
+def get_transaction_info(path_to_json: str) -> list[dict[str, Any]]:
     """
     Производит чтение данных о банковских операциях из внешнего
     json файла.
-    :param path_to_data: принимает путь к файлу с данными для чтения
+    :param path_to_json: принимает путь к файлу с данными для чтения
     :return: python-объект с данными об операциях
     """
 
-    actual_type = type(path_to_data)
+    actual_type = type(path_to_json)
     if actual_type != str:
         transaction_logger.error(
             f"Переданный путь к файлу не является строкой."
@@ -34,19 +34,19 @@ def get_transaction_info(path_to_data: str) -> list[dict[str, Any]]:
             f"Передан тип: {actual_type.__name__}."
         )
 
-    if not os.path.exists(path_to_data) or os.path.getsize(path_to_data) == 0:
+    if not os.path.exists(path_to_json) or os.path.getsize(path_to_json) == 0:
         transaction_logger.error(
             f'Файл пустой или не существует по указанному пути: '
-            f'"{path_to_data}".'
+            f'"{path_to_json}".'
         )
         return []
 
-    with open(path_to_data, "r", encoding="utf-8") as data:
+    with open(path_to_json, "r", encoding="utf-8") as data:
         content = json.load(data)
         if not isinstance(content, list):
             return []
         else:
             transaction_logger.info(
-                f'Файл по пути "{path_to_data}" успешно обработан.'
+                f'Файл по пути "{path_to_json}" успешно обработан.'
             )
             return content
