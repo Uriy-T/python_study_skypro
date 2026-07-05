@@ -41,7 +41,7 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
             f"Передан тип: {actual_type.__name__}."
         )
 
-    if not os.path.exists(path_to_csv) and os.path.getsize(path_to_csv) == 0:
+    if not os.path.exists(path_to_csv) or os.path.getsize(path_to_csv) == 0:
         csv_transaction_logger.error(
             f'Файл пустой или не существует по указанному пути: '
             f'"{path_to_csv}".'
