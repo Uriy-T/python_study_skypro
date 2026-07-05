@@ -20,7 +20,16 @@ transaction_handler.setFormatter(transaction_formater)
 csv_transaction_logger.addHandler(transaction_handler)
 xlsx_transaction_logger.addHandler(transaction_handler)
 
+
 def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
+    """
+        Функция преобразует данные из файлов CSV в python объект:
+        список словарей.
+        :param path_to_csv: принимает строку с путем
+        к файлу, из которого нужно проводить чтение.
+        :return: возвращает список словарей с данными о транзакциях
+        """
+
     actual_type = type(path_to_csv)
     if actual_type != str:
         csv_transaction_logger.error(
@@ -53,9 +62,6 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
             )
             return []
 
-csv_return_data = csv_reader('../data/transactions.csv')
-
-# print(csv_return_data)
 
 def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
     actual_type = type(path_to_xlsx)
@@ -87,9 +93,3 @@ def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
             f'Структура данных файла пуста.'
         )
         return []
-
-
-
-xlsx_return_data = xlsx_reader('../data/transactions_excel.xlsx')
-
-# print(xlsx_return_data)
