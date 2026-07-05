@@ -27,7 +27,7 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
         список словарей.
         :param path_to_csv: принимает строку с путем
         к файлу, из которого нужно проводить чтение.
-        :return: возвращает список словарей с данными о транзакциях
+        :return: возвращает список словарей с данными о транзакциях.
         """
 
     actual_type = type(path_to_csv)
@@ -50,12 +50,14 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
 
     with open(path_to_csv, 'r', encoding='utf-8') as file:
         csv_data = csv.DictReader(file, delimiter=';')
-        is_content = next(csv_data)
+
+        is_content = list(csv_data)
+
         if is_content:
             csv_transaction_logger.info(
                 f'Файл по пути "{path_to_csv}" успешно обработан.'
             )
-            return [row for row in csv_data]
+            return is_content
         else:
             csv_transaction_logger.error(
                 f'Структура данных файла пуста.'
@@ -64,6 +66,13 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
 
 
 def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
+    """
+    Функция преобразует данные из XLSX файла в python объект:
+    список словарей.
+    :param path_to_xlsx: принимает строку с путем
+    к файлу, из которого нужно проводить чтение.
+    :return: возвращает список словарей с данными о транзакциях.
+    """
     actual_type = type(path_to_xlsx)
     if actual_type != str:
         xlsx_transaction_logger.error(
@@ -75,7 +84,7 @@ def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
             f"Передан тип: {actual_type.__name__}."
         )
 
-    if not os.path.exists(path_to_xlsx) and os.path.getsize(path_to_xlsx) == 0:
+    if not os.path.exists(path_to_xlsx) or os.path.getsize(path_to_xlsx) == 0:
         xlsx_transaction_logger.error(
             f'Файл пустой или не существует по указанному пути: '
             f'"{path_to_xlsx}".'
