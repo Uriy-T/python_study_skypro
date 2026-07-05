@@ -1,8 +1,9 @@
-import os
-from typing import Any
 import csv
-import pandas as pd
 import logging
+import os
+from typing import Any, Hashable
+
+import pandas as pd
 
 csv_transaction_logger = logging.getLogger('table_data_readers.csv_reader')
 xlsx_transaction_logger = logging.getLogger('table_data_readers.xlsx_reader')
@@ -14,7 +15,10 @@ transaction_handler = logging.FileHandler(
     "logs/table_data_readers.log", encoding="utf-8", mode="w"
 )
 transaction_formater = logging.Formatter(
-    "%(asctime)s-%(name)s-%(levelname)s-%(message)s")
+    "Время вызова: %(asctime)s\n"
+    "Модуль: %(name)s\n"
+    "Серьезность: %(levelname)s\n"
+    "Описание события: %(message)s\n")
 transaction_handler.setFormatter(transaction_formater)
 
 csv_transaction_logger.addHandler(transaction_handler)
@@ -60,12 +64,12 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
             return is_content
         else:
             csv_transaction_logger.error(
-                f'Структура данных файла пуста.'
+                f'Файл по пути "{path_to_csv}" содержит только заголовки.'
             )
             return []
 
 
-def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
+def xlsx_reader(path_to_xlsx: str) -> list[dict[Hashable, Any]] | None:
     """
     Функция преобразует данные из XLSX файла в python объект:
     список словарей.
@@ -76,6 +80,7 @@ def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
     actual_type = type(path_to_xlsx)
     if actual_type != str:
         xlsx_transaction_logger.error(
+            f"Неверный путь."
             f"Ожидаемый тип данных: str."
             f"Передан тип: {actual_type.__name__}."
         )
@@ -91,14 +96,24 @@ def xlsx_reader(path_to_xlsx: str) -> list[dict[str, Any]]:
         )
         return []
 
-    xlsx_data = pd.read_excel(path_to_xlsx)
+    xlsx_data = pd.read_excel(path_to_xlsx, header=None)
+    if len(xlsx_data) == 0:
+        xlsx_transaction_logger.error(
+            f'Файл по пути "{path_to_xlsx}" полностью пуст'
+        )
+        return []
+    elif len(xlsx_data) == 1:
+        xlsx_transaction_logger.error(
+            f'В файле по пути "{path_to_xlsx}" есть только заголовки.'
+        )
+        return []
+
+    xlsx_data = pd.read_excel(path_to_xlsx, header=0)
     if not xlsx_data.empty:
         xlsx_transaction_logger.info(
             f'Файл по пути "{path_to_xlsx}" успешно обработан.'
         )
+
         return [row.to_dict() for _, row in xlsx_data.iterrows()]
     else:
-        xlsx_transaction_logger.error(
-            f'Структура данных файла пуста.'
-        )
         return []
