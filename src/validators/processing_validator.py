@@ -63,7 +63,7 @@ def dff_validator(data: list[dict]) -> None:
             )
 
 
-available_states = ["EXECUTED", "CANCELED"]
+available_states = ['EXECUTED', 'CANCELED', 'PENDING']
 
 
 def state_validator(state: str) -> None:
