@@ -1,5 +1,7 @@
 from typing import Any
 
+from config import available_states
+
 log_valid_data: list[dict[str, Any]] = [
     {
         "data_for_filter": [
@@ -61,7 +63,7 @@ log_invalid_data: list[dict[str, Any]] = [
             "Функция: filter_by_state - ошибка выполнения.\n"
             "Результат работы:\n"
             "Значения state нет в списке доступных состояний."
-            "Доступны: ['EXECUTED', 'CANCELED']\n"
+            f"Доступны: {available_states}\n"
             f"Были введены данные: ({invalid_dataset!r},), {{'state': 'AWAIT'}}\n\n",
     }
 ]

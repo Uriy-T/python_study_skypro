@@ -1,4 +1,5 @@
 from typing import Any
+from config import available_states
 
 fbs_valid_data: list[dict[str, Any]] = [
     {
@@ -142,7 +143,7 @@ fbs_invalid_data: list[dict[str, Any]] = [
         ],
         "state": "AWAIT",
         "system_answer": "Значения state нет в списке доступных состояний."
-        "Доступны: ['EXECUTED', 'CANCELED']",
+        f"Доступны: {available_states}",
         "exception_type": ValueError,
     },
     {
