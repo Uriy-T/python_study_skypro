@@ -1,4 +1,4 @@
-from data_for_test.generators.filter_input_data import available_currencies
+from config import available_currencies
 
 
 def data_type_validator(data: list[dict]) -> None:
