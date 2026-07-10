@@ -34,7 +34,7 @@ def main() -> None:
             )
             break
 
-        except:
+        except ValueError:
             print(
                 "Введенное значение не может быть интерпретировано"
                 " как целочисленное."
