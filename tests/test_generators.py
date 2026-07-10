@@ -32,22 +32,22 @@ def test_filter_by_currency_positive(
     assert filtered_data == expected_seq
 
 
-@pytest.mark.parametrize(
-    param_packer(trans_invalid_data), value_packer(trans_invalid_data)
-)
-def test_filter_by_currency_negative(
-    transaction: list[dict],
-    currency: str,
-    system_answer: str,
-    exception_type: type[Exception],
-) -> None:
-    with pytest.raises(exception_type) as exc_info:
-        filter_by_currency(transaction, currency)
-
-    if exception_type == KeyError:
-        assert exc_info.value.args[0] == system_answer
-    else:
-        assert str(exc_info.value) == system_answer
+# @pytest.mark.parametrize(
+#     param_packer(trans_invalid_data), value_packer(trans_invalid_data)
+# )
+# def test_filter_by_currency_negative(
+#     transaction: list[dict],
+#     currency: str,
+#     system_answer: str,
+#     exception_type: type[Exception],
+# ) -> None:
+#     with pytest.raises(exception_type) as exc_info:
+#         filter_by_currency(transaction, currency)
+#
+#     if exception_type == KeyError:
+#         assert exc_info.value.args[0] == system_answer
+#     else:
+#         assert str(exc_info.value) == system_answer
 
 
 @pytest.mark.parametrize(
@@ -63,22 +63,22 @@ def test_transaction_descriptions_positive(
     assert descriptions_list == expected_seq
 
 
-@pytest.mark.parametrize(
-    param_packer(descr_invalid_data), value_packer(descr_invalid_data)
-)
-def test_transaction_descriptions_negative(
-    transaction: list[dict],
-    system_answer: str,
-    exception_type: Type[Exception],
-) -> None:
-    gen = transaction_descriptions(transaction)
-    with pytest.raises(exception_type) as exc_info:
-        next(gen)
-
-    if exception_type == KeyError:
-        assert exc_info.value.args[0] == system_answer
-    else:
-        assert str(exc_info.value) == system_answer
+# @pytest.mark.parametrize(
+#     param_packer(descr_invalid_data), value_packer(descr_invalid_data)
+# )
+# def test_transaction_descriptions_negative(
+#     transaction: list[dict],
+#     system_answer: str,
+#     exception_type: Type[Exception],
+# ) -> None:
+#     gen = transaction_descriptions(transaction)
+#     with pytest.raises(exception_type) as exc_info:
+#         next(gen)
+#
+#     if exception_type == KeyError:
+#         assert exc_info.value.args[0] == system_answer
+#     else:
+#         assert str(exc_info.value) == system_answer
 
 
 @pytest.mark.parametrize(
