@@ -9,7 +9,7 @@ from src.validators.generators_validators import (
 
 
 def filter_by_currency(
-    transactions: list[dict], currency: str
+        transactions: list[dict], currency: str
 ) -> Generator[dict[Any, Any], None, None]:
     """
     Функция фильтрует список операций по параметру валюты
@@ -20,17 +20,26 @@ def filter_by_currency(
     операций.
     """
     data_type_validator(transactions)
-    structure_validator(transactions)
     currency_validator(currency)
-    return (
-        operation
-        for operation in transactions
-        if operation["operationAmount"]["currency"]["code"] == currency
-    )
+    try:
+
+        structure_validator(transactions)
+
+        return (
+            operation
+            for operation in transactions
+            if operation["operationAmount"]["currency"]["code"] == currency
+        )
+    except:
+        return (
+            operation
+            for operation in transactions
+            if operation["currency_code"] == currency
+        )
 
 
 def transaction_descriptions(
-    transactions: list[dict],
+        transactions: list[dict],
 ) -> Generator[dict[Any, Any], None, None]:
     """
     Функция извлекает описание транзакций из каждого
@@ -41,10 +50,14 @@ def transaction_descriptions(
     """
 
     data_type_validator(transactions)
-    structure_validator(transactions)
+    try:
+        structure_validator(transactions)
 
-    for operation in transactions:
-        yield operation["description"]
+        for operation in transactions:
+            yield operation["description"]
+    except:
+        for operation in transactions:
+            yield operation["description"]
 
 
 def card_number_generator(start: int, end: int) -> Generator[str]:
