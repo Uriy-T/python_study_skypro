@@ -3,7 +3,7 @@ get_info_valid_data = [
         'file_for_read': './data_for_test/table_data_readers/valid_transactions.csv',
         'expected_data': [
             {
-                'id': '650703',
+                'id': 650703,
                 'state': 'EXECUTED',
                 'date': '2023-09-05T11:30:32Z',
                 'amount': '16210',
@@ -15,7 +15,7 @@ get_info_valid_data = [
             },
 
             {
-                'id': '3598919',
+                'id': 3598919,
                 'state': 'EXECUTED',
                 'date': '2020-12-06T23:00:58Z',
                 'amount': '29740',
@@ -27,7 +27,7 @@ get_info_valid_data = [
             },
 
             {
-                'id': '593027',
+                'id': 593027,
                 'state': 'CANCELED',
                 'date': '2023-07-22T05:02:01Z',
                 'amount': '30368',
