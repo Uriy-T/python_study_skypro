@@ -58,6 +58,12 @@ def csv_reader(path_to_csv: str) -> list[dict[str, Any]]:
         is_content = list(csv_data)
 
         if is_content:
+            correct_transactions = []
+            for item in is_content:
+                for key, value in item.items():
+                    if key == 'id':
+                        item[key] = int(value)
+                        correct_transactions.append(item)
             csv_transaction_logger.info(
                 f'Файл по пути "{path_to_csv}" успешно обработан.'
             )
