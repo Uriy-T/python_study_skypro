@@ -25,7 +25,7 @@ def filter_by_currency(
     return (
         operation
         for operation in transactions
-        if operation["operationAmount"]["currency"]["name"] == currency
+        if operation["operationAmount"]["currency"]["code"] == currency
     )
 
 
