@@ -30,7 +30,7 @@ def filter_by_currency(
             for operation in transactions
             if operation["operationAmount"]["currency"]["code"] == currency
         )
-    except:
+    except KeyError:
         return (
             operation
             for operation in transactions
@@ -55,7 +55,7 @@ def transaction_descriptions(
 
         for operation in transactions:
             yield operation["description"]
-    except:
+    except KeyError:
         for operation in transactions:
             yield operation["description"]
 
