@@ -24,7 +24,7 @@ def filter_by_state(
     dff_validator(data_for_filter)
     state_validator(state)
 
-    return [item for item in data_for_filter if item["state"] == state]
+    return [item for item in data_for_filter if item["state"] == state.upper()]
 
 
 def sort_by_date(
