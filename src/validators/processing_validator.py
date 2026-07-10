@@ -72,7 +72,7 @@ def state_validator(state: str) -> None:
             f"state должен быть str." f"Получен тип: {type(state).__name__}"
         )
 
-    if state not in available_states:
+    if state.upper() not in available_states:
         raise ValueError(
             f"Значения state нет в списке доступных состояний."
             f"Доступны: {available_states}"
