@@ -5,7 +5,10 @@ import pytest
 from dotenv import load_dotenv
 
 from data_for_test.external_api.external_test_data import (
-    ext_api_invalid_data, ext_api_valid_data, structure_test_data)
+    ext_api_invalid_data,
+    ext_api_valid_data,
+    structure_test_data,
+)
 from src.external_api import get_amount
 from src.tools.input_data_formater import param_packer, value_packer
 

@@ -36,7 +36,7 @@ def get_transaction_info(path_to_json: str) -> list[dict[str, Any]]:
 
     if not os.path.exists(path_to_json) or os.path.getsize(path_to_json) == 0:
         transaction_logger.error(
-            f'Файл пустой или не существует по указанному пути: '
+            f"Файл пустой или не существует по указанному пути: "
             f'"{path_to_json}".'
         )
         return []

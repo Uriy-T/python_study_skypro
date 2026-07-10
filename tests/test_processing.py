@@ -1,9 +1,15 @@
 import pytest
 
 from data_for_test.processing.filter_by_state_test_data import (
-    fbs_invalid_data, fbs_valid_data, fbs_valid_data_partial)
+    fbs_invalid_data,
+    fbs_valid_data,
+    fbs_valid_data_partial,
+)
 from data_for_test.processing.sort_by_date_test_data import (
-    sdb_invalid_data, sdb_valid_data, sdb_valid_data_partial)
+    sdb_invalid_data,
+    sdb_valid_data,
+    sdb_valid_data_partial,
+)
 from src.processing import filter_by_state, sort_by_date
 from src.tools.input_data_formater import param_packer, value_packer
 

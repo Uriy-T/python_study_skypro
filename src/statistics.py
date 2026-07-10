@@ -1,11 +1,14 @@
 from collections import defaultdict
 from typing import Any
-from src.validators.base_validator import data_type_validator, collection_elements_type_validator
+
+from src.validators.base_validator import (
+    collection_elements_type_validator,
+    data_type_validator,
+)
 
 
 def transactions_by_categories(
-        transactions: list[dict[str, Any]],
-        categories: list[str]
+    transactions: list[dict[str, Any]], categories: list[str]
 ) -> dict[str, int]:
     """
     Функция считает количество операций по указанному
@@ -19,20 +22,17 @@ def transactions_by_categories(
     операций, им соответствующих
     """
 
-    data_type_validator(transactions, list, 'transactions')
-    collection_elements_type_validator(transactions, dict, 'transactions')
-    data_type_validator(categories, list, 'categories')
-    collection_elements_type_validator(categories, str, 'categories')
+    data_type_validator(transactions, list, "transactions")
+    collection_elements_type_validator(transactions, dict, "transactions")
+    data_type_validator(categories, list, "categories")
+    collection_elements_type_validator(categories, str, "categories")
 
-    transactions_count = defaultdict(int)
+    transactions_count: dict[str, int] = defaultdict(int)
 
     for category in categories:
         transactions_count[category]
         for transaction in transactions:
-            if transaction['description'].lower() == category.lower():
+            if transaction["description"].lower() == category.lower():
                 transactions_count[category] += 1
 
     return dict(transactions_count)
-
-
-
