@@ -1,0 +1,348 @@
+[
+  {
+    "id": 716496732,
+    "state": "EXECUTED",
+    "date": "2018-04-04T17:33:34.701093",
+    "operationAmount": {
+      "amount": "40701.91",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Перевод организации",
+    "from": "Visa Gold 5999414228426353",
+    "to": "Счет 84729156384019283746"
+  },
+  {
+    "id": 123456789,
+    "state": "CANCELED",
+    "date": "2019-05-10T12:15:30.123456",
+    "operationAmount": {
+      "amount": "15230.50",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод с карты на карту",
+    "from": "MasterCard 5432109876543210",
+    "to": "Visa Platinum 1234567890123456"
+  },
+  {
+    "id": 987654321,
+    "state": "EXECUTED",
+    "date": "2020-11-20T09:45:12.987654",
+    "operationAmount": {
+      "amount": "8500.75",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Перевод с карты на счет",
+    "from": "Visa Classic 4567890123456789",
+    "to": "Счет 58293017465038291647"
+  },
+  {
+    "id": 456789123,
+    "state": "PENDING",
+    "date": "2021-08-15T14:22:45.654321",
+    "operationAmount": {
+      "amount": "123456.78",
+      "currency": {
+        "name": "CNY",
+        "code": "CNY"
+      }
+    },
+    "description": "Перевод со счета на счет",
+    "from": "Счет 73829104651283947560",
+    "to": "Счет 19283746501928374650"
+  },
+  {
+    "id": 789123456,
+    "state": "EXECUTED",
+    "date": "2017-12-01T08:00:00.000000",
+    "operationAmount": {
+      "amount": "3000.00",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Перевод со счета на карту",
+    "from": "Счет 45678912304567891230",
+    "to": "MasterCard 9876543210123456"
+  },
+  {
+    "id": 321654987,
+    "state": "CANCELED",
+    "date": "2022-03-25T16:30:20.111222",
+    "operationAmount": {
+      "amount": "752.30",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Перевод с карты на карту",
+    "from": "Мир 1234567890123456",
+    "to": "Visa Gold 6543210987654321"
+  },
+  {
+    "id": 654987321,
+    "state": "EXECUTED",
+    "date": "2018-09-14T11:11:11.222333",
+    "operationAmount": {
+      "amount": "54000.00",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод с карты на счет",
+    "from": "Visa Platinum 3216549870123456",
+    "to": "Счет 91028374650192837465"
+  },
+  {
+    "id": 147258369,
+    "state": "PENDING",
+    "date": "2020-02-29T23:59:59.999999",
+    "operationAmount": {
+      "amount": "9876.54",
+      "currency": {
+        "name": "CNY",
+        "code": "CNY"
+      }
+    },
+    "description": "Перевод со счета на счет",
+    "from": "Счет 10293847561029384756",
+    "to": "Счет 56473829105647382910"
+  },
+  {
+    "id": 258369147,
+    "state": "EXECUTED",
+    "date": "2023-01-01T00:00:00.000000",
+    "operationAmount": {
+      "amount": "150000.25",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Перевод со счета на карту",
+    "from": "Счет 83746510293847561029",
+    "to": "MasterCard 7418529630123456"
+  },
+  {
+    "id": 369147258,
+    "state": "CANCELED",
+    "date": "2019-07-07T07:07:07.707070",
+    "operationAmount": {
+      "amount": "123.45",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Перевод с карты на карту",
+    "from": "MasterCard 8529637410123456",
+    "to": "Мир 9638527410123456"
+  },
+  {
+    "id": 741852963,
+    "state": "EXECUTED",
+    "date": "2021-12-31T23:59:59.123456",
+    "operationAmount": {
+      "amount": "20000.00",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод с карты на счет",
+    "from": "Visa Classic 9876543210012345",
+    "to": "Счет 29384756102938475610"
+  },
+  {
+    "id": 852963741,
+    "state": "PENDING",
+    "date": "2018-06-15T18:18:18.181818",
+    "operationAmount": {
+      "amount": "6789.01",
+      "currency": {
+        "name": "CNY",
+        "code": "CNY"
+      }
+    },
+    "description": "Перевод со счета на карту",
+    "from": "Счет 67584930291847561023",
+    "to": "Visa Platinum 1593572580123456"
+  },
+  {
+    "id": 963852741,
+    "state": "EXECUTED",
+    "date": "2022-11-11T11:11:11.111111",
+    "operationAmount": {
+      "amount": "11111.11",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Перевод с карты на карту",
+    "from": "Мир 3571598520123456",
+    "to": "Visa Gold 2581473690123456"
+  },
+  {
+    "id": 159357258,
+    "state": "CANCELED",
+    "date": "2020-04-01T12:00:00.000000",
+    "operationAmount": {
+      "amount": "500.50",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Перевод со счета на счет",
+    "from": "Счет 48593027185647392018",
+    "to": "Счет 37485920183746592018"
+  },
+  {
+    "id": 357159852,
+    "state": "EXECUTED",
+    "date": "2023-06-06T06:06:06.060606",
+    "operationAmount": {
+      "amount": "45000.75",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Перевод с карты на счет",
+    "from": "MasterCard 4561237890123456",
+    "to": "Счет 56473829101928374650"
+  },
+
+  {
+    "id": 111111111,
+    "state": "EXECUTED",
+    "date": "2024-01-10T10:00:00.000000",
+    "operationAmount": {
+      "amount": "1000.00",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Открытие счета",
+    "from": null,
+    "to": "Счет 47382910564839201746"
+  },
+  {
+    "id": 222222222,
+    "state": "CANCELED",
+    "date": "2024-02-15T11:11:11.111111",
+    "operationAmount": {
+      "amount": "2500.50",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Закрытие счета",
+    "from": null,
+    "to": "Счет 82937461502938475610"
+  },
+  {
+    "id": 333333333,
+    "state": "PENDING",
+    "date": "2024-03-20T12:12:12.121212",
+    "operationAmount": {
+      "amount": "50000.75",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Открытие вклада",
+    "from": null,
+    "to": "Счет 56748392018374652910"
+  },
+  {
+    "id": 444444444,
+    "state": "EXECUTED",
+    "date": "2024-04-25T13:13:13.131313",
+    "operationAmount": {
+      "amount": "1500.00",
+      "currency": {
+        "name": "CNY",
+        "code": "CNY"
+      }
+    },
+    "description": "Закрытие вклада",
+    "from": null,
+    "to": "Счет 91827364501928374650"
+  },
+  {
+    "id": 555555555,
+    "state": "EXECUTED",
+    "date": "2024-05-30T14:14:14.141414",
+    "operationAmount": {
+      "amount": "7500.25",
+      "currency": {
+        "name": "USD",
+        "code": "USD"
+      }
+    },
+    "description": "Открытие счета",
+    "from": null,
+    "to": "Счет 19283746501928374651"
+  },
+  {
+    "id": 666666666,
+    "state": "CANCELED",
+    "date": "2024-06-15T15:15:15.151515",
+    "operationAmount": {
+      "amount": "3200.80",
+      "currency": {
+        "name": "EUR",
+        "code": "EUR"
+      }
+    },
+    "description": "Закрытие счета",
+    "from": null,
+    "to": "Счет 38475629103847562019"
+  },
+  {
+    "id": 777777777,
+    "state": "PENDING",
+    "date": "2024-07-20T16:16:16.161616",
+    "operationAmount": {
+      "amount": "80000.00",
+      "currency": {
+        "name": "руб.",
+        "code": "RUB"
+      }
+    },
+    "description": "Открытие вклада",
+    "from": null,
+    "to": "Счет 75648392017382910465"
+  },
+  {
+    "id": 888888888,
+    "state": "EXECUTED",
+    "date": "2024-08-25T17:17:17.171717",
+    "operationAmount": {
+      "amount": "1200.90",
+      "currency": {
+        "name": "CNY",
+        "code": "CNY"
+      }
+    },
+    "description": "Закрытие вклада",
+    "from": null,
+    "to": "Счет 64573829104856293017"
+  }
+]
